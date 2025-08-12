@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server'
-import { client } from '@lib/sanity'
-import { v4 as uuidv4 } from 'uuid'
+import { serverClient } from '@lib/sanity'
 
 
 export async function POST(req: Request) {
@@ -11,7 +10,7 @@ export async function POST(req: Request) {
           return NextResponse.json({ error: 'Missing fields' }, { status: 400 })
         }
     
-        const emailSignup = await client.create({
+        const emailSignup = await serverClient.create({
             _type: 'emailSignup',
             email
           })
