@@ -49,12 +49,17 @@ export default function RootLayout({
           <>
             {hasMounted && (
               <>
+              {/* <div
+                  className="fixed top-8 right-12 z-20 w-20 h-9 bg-white bg-opacity-20 backdrop-blur-md rounded-lg border border-white border-opacity-30"
+                ></div> */}
                 {/* Menu Button */}
                 <button
                   className={`${
                     menuButtonVisible ? "visible" : "hidden"
-                  } fixed top-8 right-12 z-30 text-white text-sm font-light tracking-wide hover:underline focus:outline-none`}
+                  } fixed top-8 right-12 z-30 text-white text-sm font-light tracking-wide hover:underline focus:outline-none
+                  px-4 py-1 ${pathname.startsWith('/events') && 'menu-text'}`}
                   onClick={() => {
+                    console.log(pathname)
                     setMenuOpen(true);
                     setMenuButtonVisible(false);
                   }}

@@ -23,6 +23,11 @@ nextjs-portal {
 	display: none;
 }
 
+.menu-text {
+	mix-blend-mode: difference;
+	color: white;
+}
+
 body {
 	background: var(--background);
 	color: var(--foreground);
