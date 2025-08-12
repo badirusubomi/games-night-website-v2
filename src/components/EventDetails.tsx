@@ -79,8 +79,8 @@ export default function EventDetails({ event }: { event: EventData }) {
       </header>
 
       <section>
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">Description</h2>
-        <p className="text-gray-700">{event.description || 'No description provided yet.'}</p>
+        <h2 className="text-xl font-semibold text-gray-800 mb-2">Event Details</h2>
+        <div className="text-gray-700 text-sm whitespace-pre-line">{event.description || 'No description provided yet.'}</div>
       </section>
 
       <section>

@@ -10,9 +10,10 @@ interface Props {
 }
 
 
-export default async function EventPage({ params }) {
+export default async function EventPage(props: { params: Promise<{ eventId: string }> }) {
+const { eventId } = await props.params;
 
-const event = await fetchEventById(params.eventId)
+const event = await fetchEventById(eventId)
   if (!event) {
     notFound()
     // return (

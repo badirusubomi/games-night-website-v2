@@ -16,7 +16,11 @@ export default async function Event() {
 						<a href={`/events/${event._id}`} className="text-white text-2xl font-light hover:underline">
                         <h2 className="text-xl font-semibold">{event.title}</h2>
                       	</a>
-						<p>{event.description}</p>
+						<p>
+						{event.description?.length > 100
+						? event.description.slice(0, 100) + '. . .'
+						: event.description}
+						</p>
 					</li>
 				))}
 			</ul>

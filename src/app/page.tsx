@@ -12,7 +12,7 @@ export default async function Home() {
 				<div className="max-w-4xl mx-auto text-center px-4">
 					<h1 className="text-5xl font-bold mb-4"> The Homies Invite You</h1>
 					<p className="text-lg mb-6">
-						We host amazing events every now and then. Come through and have fun.
+						We host some pretty cool events every now and then. Come through and have fun.
 					</p>
 
 					<EmailSignUp/>
@@ -37,8 +37,10 @@ export default async function Home() {
 							<div className="p-4">
 								<a href={`/events/${event._id}`}>
 									<h3 className="font-semibold text-lg mb-2">{event.title}</h3>
-									<p className="text-gray-600 text-sm mb-4">
-									{event.description}
+									<p className="text-gray-600 text-sm mb-4 whitespace-pre-line">
+									{event.description?.length > 100
+										? event.description.slice(0, 100) + '…'
+										: event.description}
 									</p>
 									<h2 className="text-indigo-600 font-medium hover:underline">Learn More →</h2>
 								</a>
