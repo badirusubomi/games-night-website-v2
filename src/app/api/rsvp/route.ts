@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { client } from '@lib/sanity'
+import { serverClient } from '@lib/sanity'
 
 export async function POST(req: Request) {
     try {
@@ -9,7 +9,7 @@ export async function POST(req: Request) {
           return NextResponse.json({ error: 'Missing fields' }, { status: 400 })
         }
     
-        const attendee = await client.patch(eventId)
+        const attendee = await serverClient.patch(eventId)
         .setIfMissing({ attendees: [] })
         .append("attendees", [{ name, email, bringing, guestNo }])
         .commit();
