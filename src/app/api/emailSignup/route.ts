@@ -4,7 +4,6 @@ import { serverClient } from '@lib/sanity'
 
 export async function POST(req: Request) {
     try {
-        console.log(`Testing env. variables: Sanity Project ID: ${process.env.SANITY_API_KEY}`);
         const { email } = await req.json()
     
         if ( !email) {
