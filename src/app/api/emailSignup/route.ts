@@ -1,23 +1,22 @@
-import { NextResponse } from 'next/server'
-import { serverClient } from '@lib/sanity'
-
+import { NextResponse } from "next/server";
+import { serverClient } from "@/src/lib/sanity/sanity";
 
 export async function POST(req: Request) {
-    try {
-        const { email } = await req.json()
-    
-        if ( !email) {
-          return NextResponse.json({ error: 'Missing fields' }, { status: 400 })
-        }
-    
-        const emailSignup = await serverClient.create({
-            _type: 'emailSignup',
-            email
-          })
-    
-        return NextResponse.json({ success: true, emailSignup })
-      } catch (error) {
-        console.error(error)
-        return NextResponse.json({ error: 'Failed to signup' }, { status: 500 })
-      }
+	try {
+		const { email } = await req.json();
+
+		if (!email) {
+			return NextResponse.json({ error: "Missing fields" }, { status: 400 });
+		}
+
+		const emailSignup = await serverClient.create({
+			_type: "emailSignup",
+			email,
+		});
+
+		return NextResponse.json({ success: true, emailSignup });
+	} catch (error) {
+		console.error(error);
+		return NextResponse.json({ error: "Failed to signup" }, { status: 500 });
+	}
 }

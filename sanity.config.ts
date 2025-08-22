@@ -1,5 +1,5 @@
 import { defineConfig } from "sanity";
-import { schemaTypes } from "./src/app/sanity/schemas";
+import { schemaTypes } from "./src/lib/sanity/schemas";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 
@@ -15,7 +15,7 @@ const config = defineConfig({
 	apiVersion: "2025-08-07",
 
 	basePath: "/admin",
-	
+
 	token: process.env.SANITY_API_KEY,
 
 	plugins: [structureTool(), visionTool()],
